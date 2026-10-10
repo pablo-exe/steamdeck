@@ -417,6 +417,8 @@ def main():
             os.chown(homebrew, user.pw_uid, user.pw_gid)
             for path in (user_home / '.cache', cache.parent, cache):
                 os.chown(path, user.pw_uid, user.pw_gid)
+            for artifact in artifacts(lock):
+                os.chown(cache / artifact['sha256'], user.pw_uid, user.pw_gid)
             install(lock, cache, staging, homebrew, user)
         elif args.action == 'live-update':
             import asyncio

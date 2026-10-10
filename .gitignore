@@ -1,0 +1,13 @@
+# Credenciales y configuración privada local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Archivos temporales
+*.swp
+*.swo
+*~
+.DS_Store

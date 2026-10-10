@@ -13,6 +13,24 @@ El checkout local en `/home/deck/steamdeck` es el workspace de trabajo del asist
 
 Al retomar el trabajo, consultar `AGENTS.md` y la memoria. Actualizar ambos documentos de memoria cuando haya avances relevantes.
 
-## Estado inicial
+## Decky Loader y plugins
 
-Esta primera entrega establece el workspace y la memoria. El inventario del equipo, los scripts de instalación y los workflows de CI/CD quedan pendientes para siguientes sesiones.
+Instalar las versiones fijadas en `config/decky.lock.json` desde el modo escritorio:
+
+```bash
+cd ~/steamdeck
+./scripts/install-decky.sh
+```
+
+El script descarga y verifica los artefactos como usuario y solicita `sudo` para instalar el servicio y los plugins. Requiere Steam instalado en `~/.steam/steam`, Linux con systemd y Python 3.11 o posterior. Si se ejecuta desde root, indicar `./scripts/install-decky.sh --user deck`.
+
+Comprobar el estado o preparar las descargas sin instalar:
+
+```bash
+python3 scripts/decky.py check
+python3 scripts/decky.py prepare
+```
+
+Consultar [la documentación de Decky](docs/decky.md) para las versiones, las copias locales y el procedimiento de actualización.
+
+El inventario del resto del equipo y su automatización quedan pendientes.

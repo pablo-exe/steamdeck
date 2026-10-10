@@ -11,3 +11,7 @@ secrets/
 *.swo
 *~
 .DS_Store
+
+# Cachés de Python
+__pycache__/
+*.pyc

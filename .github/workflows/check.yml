@@ -1,0 +1,22 @@
+name: Comprobar automatización
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Pruebas de integridad y recuperación
+        run: python3 -m unittest discover -s tests -v
+      - name: Validar scripts y manifiesto
+        run: |
+          bash -n scripts/install-decky.sh
+          python3 -m py_compile scripts/decky.py
+          python3 -c 'import sys; from pathlib import Path; sys.path.insert(0, "scripts"); import decky; decky.load_lock(Path("config/decky.lock.json"))'

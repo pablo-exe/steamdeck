@@ -22,3 +22,5 @@
 - La interfaz de Decky recuperó el socket durante la actualización de Framegen. Se comprobó que la instalación había terminado correctamente y se adaptó el script para verificar el resultado y reconectar sin reenviar la mutación.
 - Decky confirmó los 12 plugins cargados; la comprobación local verificó versiones, dependencias y el hash del binario de Decky. Se conservan copias privadas fuera del repositorio.
 - Se añadieron pruebas de rutas ZIP, enlaces, identidad del plugin, hash de descarga, dependencias corruptas, idempotencia y recuperación de archivos ante un fallo del servicio. La instalación completa desde cero permanece pendiente de validación en una reinstalación real.
+- Las 6 pruebas pasaron localmente. Se repitió `live-update` y no realizó cambios porque los plugins ya coincidían; el servicio siguió activo y no hubo entradas de warning en el journal del servicio durante la comprobación final.
+- Se publicó la implementación en `main`, commit `03523c9`, y GitHub Actions terminó con éxito: https://github.com/pablo-exe/steamdeck/actions/runs/38080018660.

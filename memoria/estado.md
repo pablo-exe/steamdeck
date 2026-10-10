@@ -28,6 +28,7 @@ La configuración actual se ha instalado manualmente. Se quiere conservar el con
 - Los otros 7 plugins ya estaban actualizados según las fuentes comprobadas. `__MACOSX` es un resto de ZIP y se excluye del manifiesto.
 - Instalación completa: `./scripts/install-decky.sh`. Preparación y comprobación: `python3 scripts/decky.py prepare` y `python3 scripts/decky.py check`.
 - El manifiesto fija versiones, URLs y SHA-256 de Decky, el servicio systemd, los plugins y sus dependencias declaradas. CI valida scripts, manifiesto y pruebas; el despliegue se ejecuta localmente.
+- La implementación se publicó en el commit `03523c9`. Las 6 pruebas locales pasaron y la primera ejecución de GitHub Actions terminó correctamente: https://github.com/pablo-exe/steamdeck/actions/runs/38080018660.
 - La actualización real se hizo con `python3 scripts/decky.py live-update`, usando la API autenticada de Decky; sudo requiere contraseña en este equipo. La instalación completa con systemd se verificó mediante pruebas simuladas de recuperación; aún no se ha probado en una Steam Deck recién reinstalada.
 - Copia anterior a todos los cambios: `~/.local/state/steamdeck/decky-backups/1791660334226870205.tar.gz`. Existe una segunda copia tras actualizar Framegen. Contienen datos privados y permanecen fuera de Git.
 - El commit inicial se identifica como `Codex <codex@openai.com>` usando opciones por comando; no se configura la identidad global del usuario.
